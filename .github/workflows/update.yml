@@ -21,6 +21,11 @@ jobs:
             - name: Check stats token
               env:
                   STATS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  if [ -z "$STATS_TOKEN" ]; then
+                    echo "Add the GITHUB_TOKEN repository secret before running this workflow." >&2
+                    exit 1
+                  fi
 
             - name: Generate stats card
               uses: stats-organization/github-readme-stats-action@v2
