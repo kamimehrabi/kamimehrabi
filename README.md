@@ -15,13 +15,13 @@ I like working on APIs, automation, and the infrastructure that holds everything
 
 ### My toolkit
 
-| | |
-| :--- | :--- |
-| **Languages** | TypeScript · JavaScript · Python |
-| **Backend** | Bun · Node.js · ElysiaJS · NestJS · Express · FastAPI |
-| **Data** | PostgreSQL · MySQL · MongoDB · Redis · OpenSearch |
-| **Messaging & automation** | RabbitMQ · Kafka · Puppeteer |
-| **Cloud & delivery** | Docker · AWS · GCP · GitHub Actions · Vercel · Netlify |
+|                            |                                                        |
+| :------------------------- | :----------------------------------------------------- |
+| **Languages**              | TypeScript · JavaScript · Python                       |
+| **Backend**                | Bun · Node.js · ElysiaJS · NestJS · Express · FastAPI  |
+| **Data**                   | PostgreSQL · MySQL · MongoDB · Redis · OpenSearch      |
+| **Messaging & automation** | RabbitMQ · Kafka · Puppeteer                           |
+| **Cloud & delivery**       | Docker · AWS · GCP · GitHub Actions · Vercel · Netlify |
 
 <p>
   <a href="https://www.typescriptlang.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="TypeScript" width="40" height="40" /></a>&nbsp;
@@ -41,8 +41,7 @@ I like working on APIs, automation, and the infrastructure that holds everything
 ### GitHub at a glance
 
 <p align="center">
-  <img src="profile/stats.svg" alt="Kamran's GitHub statistics" width="49%" />
-  <img src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=kamimehrabi&amp;layout=compact&amp;hide_border=true&amp;bg_color=101e28&amp;title_color=6ad7bc&amp;text_color=b8ccc9" alt="Languages used in Kamran's public GitHub repositories" width="40%" />
+  <img src="https://github-readme-stats-fast.vercel.app/api/streak?username=kamimehrabi&amp;theme=tokyonight" alt="Kamran's GitHub contribution streak" width="70%" />
 </p>
 
 ---
