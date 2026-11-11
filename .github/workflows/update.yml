@@ -1,48 +1,48 @@
-name: Update profile statistics
+name: Update README cards
 
 on:
     schedule:
-        - cron: "17 0 * * *"
+        - cron: "0 0 * * *" # Runs once daily at midnight
     workflow_dispatch:
 
-permissions:
-    contents: write
-
-concurrency:
-    group: profile-statistics
-    cancel-in-progress: false
-
 jobs:
-    update:
+    build:
         runs-on: ubuntu-latest
+
+        permissions:
+            contents: write
+
         steps:
             - uses: actions/checkout@v6
-
-            - name: Check stats token
-              env:
-                  STATS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: |
-                  if [ -z "$STATS_TOKEN" ]; then
-                    echo "Add the GITHUB_TOKEN repository secret before running this workflow." >&2
-                    exit 1
-                  fi
 
             - name: Generate stats card
               uses: stats-organization/github-readme-stats-action@v2
               with:
                   card: stats
-                  options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&hide_border=true&bg_color=101e28&title_color=6ad7bc&icon_color=6ad7bc&text_color=b8ccc9
+                  options: username=${{ github.repository_owner }}&show_icons=true
                   path: profile/stats.svg
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  fail_on_error: true
 
-            - name: Commit updated card
+            - name: Generate top languages card
+              uses: stats-organization/github-readme-stats-action@v2
+              with:
+                  card: top-langs
+                  options: username=${{ github.repository_owner }}&layout=compact&langs_count=6
+                  path: profile/top-langs.svg
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Generate pin card
+              uses: stats-organization/github-readme-stats-action@v2
+              with:
+                  card: pin
+                  options: username=stats-organization&repo=github-readme-stats
+                  path: profile/pin-stats-organization-github-readme-stats.svg
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Commit cards
               run: |
                   git config user.name "github-actions[bot]"
                   git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                  git add profile/stats.svg
-                  if git diff --cached --quiet; then
-                    exit 0
-                  fi
-                  git commit -m "Update profile statistics"
+                  git add profile/*.svg
+                  git commit -m "Update README cards" || exit 0
                   git push
